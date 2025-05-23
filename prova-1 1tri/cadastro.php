@@ -10,6 +10,18 @@ $emailUsuario = $_SESSION['usuario_logado'];
 $nomeUsuario = $_SESSION['nome_usuario'];
 
 $inicialUsuario = strtoupper(substr($nomeUsuario, 0, 1));
+
+function validaPac($pacientetestado){
+  $pacientes = $_SESSION["pacientes"][$_SESSION["login"]["email"]];
+  $pacientesrepetidos = aarray_filter($pacientes, function($valor) use ($pacientetestado){
+    if($valor["nome"]==$pacientetestado["nome"]&&$valor["doenca"]==$pacientetestado["doenca"]){
+      echo"Paciente já cadastrado";
+      return true;
+    }
+    return false;
+  })
+  return count($pacientesrepetidos)>0?false:true;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -73,13 +85,13 @@ $inicialUsuario = strtoupper(substr($nomeUsuario, 0, 1));
       'sangue'=>$_POST["sangue"],
       'doenca'=>$_POST["doenca"],
       'gravidade'=>$_POST["gravidade"],
-	  'data'=>$_POST["data"]
+	    'data'=>$_POST["data"]
     ];
 	    if(!isset($_SESSION["pacientes"])){
       $_SESSION["pacientes"]=[];
     }
     $_SESSION["pacientes"][$emailUsuario][]=$pacientes;
-	
+    echo "Paciente " . $pacientes["nome"] . "cadastrado com sucesso! ";
     ?>
     <p><a href="lista.php">🔙 Ir para Lista de Pacientes</a></p>
   </div>

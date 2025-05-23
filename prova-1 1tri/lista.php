@@ -11,12 +11,11 @@ switch($gravidade){
       case 'Leve': return $risco="Baixo";
       case 'Moderado': return $risco="Médio";
       case 'Alto': return $risco="Alto";
-    }
-	if($gravidade="Crítico"){
+      case 'Crítico':
 		if($idade<60){
 			return $risco="Muito Alto";
 		}
-		elseif($idade>=60){
+		else{
 			return $risco="Extremo";
 		}
 	}
@@ -52,14 +51,6 @@ $pacientes = $_SESSION['pacientes'][$emailUsuario]??[];
           <th>Risco</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>João da Silva</td>
-          <td>68</td>
-          <td>Pneumonia</td>
-          <td>Crítico</td>
-          <td>Extremo</td>
-        </tr>
 		<?php
         foreach($pacientes as $paciente){
             $risc=calcularisco($paciente['gravidade'],$paciente['idade']);
@@ -72,8 +63,6 @@ $pacientes = $_SESSION['pacientes'][$emailUsuario]??[];
           <td><?php echo $paciente["gravidade"]; ?></td>
           <td><?php echo $risc; ?></td>
         </tr>
-
-        <!-- Linhas geradas dinamicamente com PHP -->
       </tbody>
     </table>
 

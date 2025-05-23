@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -33,19 +32,19 @@ session_start();
         'nome' => 'pipi',
         'email' => 'pipi@gmail.com',
         'senha' => '123',
-		'perfil' => 'Recepcionista'
+		    'perfil' => 'Recepcionista'
     ],
     [
         'nome' => 'marques',
         'email' => 'marques@yahoo.com',
         'senha' => 'mques',
-		'perfil' => 'Enfermeiro'
+		    'perfil' => 'Enfermeiro'
     ],
     [
         'nome' => 'gueilherme',
         'email' => 'guigui@hotmail.com',
-        'senha' => 'Pq4rZ1wL',
-		'perfil' => 'Médico'
+        'senha' => 'genshin',
+		    'perfil' => 'Médico'
     ]
 ];	
 	$_SESSION["login"]=[];
