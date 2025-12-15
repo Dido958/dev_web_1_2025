@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Painel</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <h1>Sistema de Biblioteca</h1>
+
+    <h2>Usuários</h2>
+    <label for="nome">Nome:</label>
+    <input id="nome">
+    <label for="emailUser">Email:</label> 
+    <input id="emailUser">
+    <label for="senhaUser">Senha:</label>
+    <input id="senhaUser">
+    <button onclick="criarUsuario()">Cadastrar</button>
+    <ul id="listaUsuarios"></ul>
+
+    <h2>Livros</h2>
+    <label for="titulo">Titulo:</label>
+    <input id="titulo">
+    <label for="Autor">Autor:</label>
+    <input id="autor">
+    <label for="ano">Ano:</label>
+    <input id="ano">
+    <button onclick="criarLivro()">Cadastrar</button>
+    <ul id="listaLivros"></ul>
+
+    <h2>Relatório de Livros por Autor</h2>
+<button onclick="carregarRelatorio()">Gerar</button>
+<ul id="relatorio"></ul>
+
+<button onclick="logout()">Logout</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
